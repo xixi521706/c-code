@@ -1,0 +1,8 @@
+int main()
+{
+     int arr2[10]={0};
+/    char* arr1[5];
+     char* (*p1)[5]=&arr1;   //1声明*p指针，2.[5]为指针指向的元素个数，3.数组元素的类型char*， &arr数组的地址
+/    int (*p2)[10]=&arr2;
+     return 0;
+}
