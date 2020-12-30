@@ -1,0 +1,32 @@
+#include <stdio.h>
+                                                                        //也可以逆序，左逆序，又逆序，在整体逆序
+void print(char* arr)
+{
+     assert(arr != NULL);
+     printf("%s",arr);
+}
+void left_move(char* arr,int k,int sz)
+{
+     int i=0;
+     assert(arr != NULL);
+     for(i = 0;i < k;i ++)
+     {
+         char tmp = *arr;
+         int j = 0;
+         for(j = 1;j < sz-1;j++)
+         {
+             *(arr+j-1) = *(arr+j);
+         }
+         *(arr + sz -2) = tmp;
+      }
+}
+int main()
+{
+     int k=0;
+     scanf("%d",&k);
+     char arr[]="abcdef";
+     int sz=sizeof(arr)/sizeof(arr[0]);
+     left_move(arr,k,sz);
+     print(arr);
+     return 0;
+}
