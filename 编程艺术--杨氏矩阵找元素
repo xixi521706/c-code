@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int yang(int p[][5],int k)
+{
+    int i=0;     
+    int j=4;
+    while(i<5 && j>=0)        //比较右上角的那个数，如果小于k,行数i++；如果>看，列数J--，就可以遍历整个数组，时间复杂度小于o(n)
+        if(p[i][j]<k)
+           i++;
+        else if(p[i][j]>k)
+           j--;
+        else if(p[i][j])
+           return 1;      
+    }
+     else
+           return 0;  
+}
+int main()
+{
+    int arr[5][5]={0};
+    int k=2;
+    int ret=yang(arr,k);
+    if(ret)
+        printf("find\n");
+    else
+        printf("no\n");
+}
