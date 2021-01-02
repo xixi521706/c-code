@@ -1,0 +1,12 @@
+#include <stdio.h>
+enum Colour
+{
+   red,           //有初始值，0    相当于一个有值的常量   比#define red 0好
+   green,
+   blue,
+};
+int main()
+{
+    int Colour=red;       //枚举的名字也可以赋值，这里把red类型的值赋给Colour
+    return 0;
+}
