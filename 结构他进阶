@@ -1,0 +1,18 @@
+#include <stdio.h>
+#pragma pack(16)      //设置编译器对齐数为16  
+#include <stddef.h>    //宏的头文件
+struct S
+{
+	char c;
+	int b;
+	double a;
+};
+int main()
+{
+	struct S s;
+	printf("%d\n", sizeof(s)); //结构他大小/字节
+  printf("%d\n", offsetof(struct S,c));  //计算偏移量
+	printf("%d\n", offsetof(struct S,b));
+	printf("%d\n", offsetof(struct S,a));
+	return 0;
+}
