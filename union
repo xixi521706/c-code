@@ -1,0 +1,11 @@
+#include <stdio.h>
+union un
+{
+    int c;
+		char i;
+};
+int main()
+{
+    union un u;    //u,c,i 共用一个起始空间，空间大小为int，用参数时不能同时使用
+    return 0;
+}
