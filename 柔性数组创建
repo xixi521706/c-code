@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct S
+{
+	int a;
+	int arr[];
+};
+int main()
+{
+	struct S* ps = (struct S*)malloc(sizeof(struct S) + 5 * sizeof(int));   //动态内存malloc创建柔性数组（结构体内）
+	int i = 0;
+	ps->a = 100;
+	for (i = 0; i < 5; i++)
+	{
+		ps->arr[i] = i;
+	}
+	free(ps);
+	ps = NULL;
+	return 0;
+}
