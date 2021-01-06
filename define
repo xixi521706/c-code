@@ -1,0 +1,47 @@
+define 定义常量：
+#define X 10
+#include <stdio.h>
+int main()
+{
+    int ret=X+10;              //定义的符合X直接替换
+    printf("%d\n",ret);
+    return 0;
+}
+
+
+define 定义常量出错
+#define X 10+5
+#include <stdio.h>
+int main()
+{
+    int ret=X*X            //完全替换   结果不是15*15
+    return 0;
+}
+
+
+
+define定义宏
+#define SUM(X) X*X
+#include <stdio.h>
+int main()
+{
+    int ret=SUM(10+5);        //使用宏时，传递的不是参数，完全替换
+    return 0;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+define 定义宏的时候，如果时字符不需要替换的办法：
+#define PRINT(X) printf("the value of "#X" is %d \n",X)     //"#X"打印X的字符
+#include <stdio.h>
+int main()
+{
+    int a=10;
+    int b=20;
+    PRINT(a);
+    PRINT(b);
+    return 0;
+}
