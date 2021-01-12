@@ -1,0 +1,35 @@
+#include<stdio.h>
+
+void swap(int arr[],int i,int j)
+{
+    int tmp=arr[i];
+    arr[i]=arr[j];
+    arr[j]=tmp;
+}
+int pivotsort(int arr[],int left,int right)
+{
+    int pivot=arr[right];
+    int rightbound=right;
+    while(left<right)                                            //left>right循环结束
+        while(left <= right && arr[left] <= pivot) left++;       //特殊情况，轴位在两边，right/left++到轴位置时，递归的右边界变成mid(轴位)+1/-1
+        while(left <= right && arr[right] > pivot) right--;
+        if(left<right)                                           //如果轴位在中间某处，则左边是小于该轴位的元素
+            swap(arr,left,right);
+    swap(arr,left,rightbound);                                   //轴位元素与left++（即大于轴位的最后一个元素 位置交换
+    return left;                                                 //返回交换后的轴位位置
+}
+void quicksort(int arr[],int left,int right)       //快速排序递归，其中递归的边界是上一次求得的轴位，知道找到轴位之前的元素都比轴位元素小，同理轴位后面的元素比轴位大
+{
+    if(left >= right)
+        return;
+    int mid=pivotsort(arr,left,right);
+    quicksort(arr,left,mid-1);
+    quicksort(arr,mid+,right);
+}
+int main()
+{
+    int arr[]={2,15,7,12,17,4,8,1,,18,5,9};
+    int len=sizeof(arr)/sizeof(arr[0]),left=0;
+    quicksort(arr,left,len-1);
+    return 0;
+}
