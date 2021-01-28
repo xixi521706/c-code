@@ -1,0 +1,41 @@
+#define MAX 999999
+
+#include <Windows.h>
+#include <WinBase.h>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+
+void clock()
+{
+    int hour=0,min=0,sec=0;
+    while(1)
+    {
+        ++sec;
+        Sleep(1);
+        if(hour==23 && min==59 && sec==60)
+        {
+            hour=0;
+            min=0;
+            sec=0;
+        }
+        if(min==59 && sec==60)
+        {
+            ++hour;
+            min=0;
+            sec=0;
+        }
+        if(sec=60)
+        {
+            ++min;
+            sec=0;
+        }
+        cout<<setfill('0')<<setw(2)<<hour<<":"<<setw(2)<<min<<":"<setw(2)<<sec<<endl;
+        syetem("cls");
+    }
+}
+int main()
+{
+    clock();
+    return 0;
+}
