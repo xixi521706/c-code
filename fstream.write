@@ -1,0 +1,23 @@
+
+struct Stu{
+    char name[10];
+    char sex;
+    int age;
+};
+int main(){
+    Stu s[3]={{"zhaosi",'x',19},{"zhaosi",'x',19},{"zhaosi",'x',19}};
+    fstream fs("abc.txt",ios::in|ios::out|ios::trunc|ios::binary);
+    if(!fs)
+        cout<<"open error"<<endl;
+    for(int i=0;i<3;i++){
+    fs.write((char*)&s[i],sizeof(Stu))
+    }
+    fs.seekp(0,ios::beg());
+    Stu tmp;
+    while(fs.read((char*)&tmp,sizeof(tmp)),!fs.eof()){
+        cout<<tmp.name<<endl;
+        cout<<tmp.sex<<endl;
+        cout<<tmp.age<<endl;
+    }
+    fs.close();
+}
